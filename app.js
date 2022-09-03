@@ -5,32 +5,48 @@ function saludar(nombre){
     alert(`Bienvenido ${nombre}`)
 }
 function mostrarMenu(){
-    let categoria = Number(prompt(`¿Qué estás buscando? \n 1. Vestidos \n 2. Remeras \n 3. Jeans \n 4. Sweaters \n 5. Salir `))
+    let categoria = Number(prompt(`¿Qué desea comprar? \n 1. Vestido $5.000 \n 2. Remera $2.000\n 3. Jean $6.000\n 4. Sweater $1.000 \n 5. Salir `))
     return categoria
 }
-function mostrarVestidos(){
-    let opcion = Number(prompt(`VESTIDOS \n 1. Vestido Rojo \n 2. Vestido Verde \n 3. Vestido Azul \n 4. Vestido Amarillo \n 5. Volver al menú anterior`))
-    return opcion
+function calcularTotal(productos){
+    let totalcompra = 0
+    for (let i = 0 ; i< productos.length ; i++){
+        totalcompra = totalcompra + productos[i].precio * productos[i].cantidad
+    }
+    return totalcompra
 }
-function mostrarRemeras(){
-    let opcion = Number(prompt(`REMERAS \n 1. Remera Roja \n 2. Remera Verde \n 3. Remera Azul \n 4. Remera Amarilla \n 5. Volver al menú anterior`))
-    return opcion
+function listarCompra(productos){
+    let lista = ""
+    for (let i = 0 ; i< productos.length ; i++){
+        lista = lista + productos[i].cantidad + " " + productos[i].nombre +"\n "
+    }
+    return lista
 }
-function mostrarJeans(){
-    let opcion = Number(prompt(`JEANS \n 1. Jean Rojo \n 2. Jean Verde \n 3. Jean Azul \n 4. Jean Amarillo \n 5. Volver al menú anterior`))
-    return opcion
-}
-function mostrarSweaters(){
-    let opcion = Number(prompt(`SWEATERS \n 1. Sweater Rojo \n 2. Sweater Verde \n 3. Sweater Azul \n 4. Sweater Amarillo \n 5. Volver al menú anterior`))
-    return opcion
-}
-function comprarPrenda(prenda,precio){
-    alert (`Compraste ${prenda} a $${precio}`)
-    let seguirComprando=false
-    respuesta = prompt("¿Desea seguir comprando?(si/no)")
-    if (respuesta === "si" || respuesta === "Si" || respuesta === "SI")
-        seguirComprando =true
-    return seguirComprando
+function comprarProducto(codigo_producto){
+    let cantidad=0
+    nombre=""
+    precio=0
+    if (codigo_producto ===1){
+        nombre= "Vestido"
+        precio = 5000
+        console.log("entro")
+    }
+    else if (codigo_producto ===2){
+        nombre= "Remera"
+        precio = 2000
+    }
+    else if (codigo_producto ===3){
+        nombre= "Jean"
+        precio=6000
+    }
+    else if (codigo_producto ===4){
+        nombre= "Sweater"
+        precio=1000
+    }
+    cantidad= prompt(`Ingrese cantidad de ${nombre} a comprar a $${precio} cada uno `)
+        let articuloIngresado = new Producto(nombre, precio, cantidad);
+        productos.push(articuloIngresado);
+        
 }
 function salir(){
     alert(`Gracias por su visita`)
@@ -39,88 +55,35 @@ iniciar()
 nombre= prompt(`Ingrese nombre de usuario`)
 contraseña= prompt(`Ingrese contraseña`)
 let opcion = 0
-let categoria=0
-let seguirComprando=true
+let codigo_producto=0
+const productos = [];
+class Producto {
+    constructor(nombre, precio, cantidad) {
+      this.nombre = nombre;
+      this.precio = precio;
+      this.cantidad = cantidad;
+    }
+  }
 if (contraseña === "123"){
     saludar(nombre)
-    categoria =mostrarMenu()
-    while(seguirComprando){
-        
-        console.log(`${categoria}`)
-        if (categoria ===1){
-            opcion = Number(mostrarVestidos())
-            if (opcion != 5){
-                if (opcion === 1)
-                    seguirComprando= comprarPrenda("Vestido Rojo",1000)
-                else if (opcion === 2)
-                    seguirComprando=comprarPrenda("Vestido Verde",5000)
-                else if (opcion === 3)
-                    seguirComprando=  comprarPrenda("Vestido Azul",4000)
-                else if (opcion === 4)
-                    seguirComprando=comprarPrenda("Vestido Amarillo",1000)
-                }
-            else 
-                {   console.log("entre")
-                    mostrarMenu()
-                }
-                    
-            
+    while(codigo_producto != 5){
+        codigo_producto=mostrarMenu()
+        console.log(codigo_producto)
+        comprarProducto(codigo_producto)
+        respuesta = prompt("¿Desea seguir comprando?(si/no)")
+        if (respuesta === "si" || respuesta === "Si" || respuesta === "SI"){
+            codigo_producto = 0
         }
-        else if(categoria===2){
-                opcion = mostrarRemeras()
-                if (opcion != 5){
-                    if (opcion === 1)
-                          seguirComprando=comprarPrenda("Remera Roja",1000)
-                    else if (opcion === 2)
-                         seguirComprando=comprarPrenda("Remera Verde",2000)
-                    else if (opcion === 3)
-                         seguirComprando=comprarPrenda("Remera Azul",4000)
-                    else if (opcion === 4)
-                         seguirComprando=comprarPrenda("Remera Amarilla",5000)
-                }
-                else 
-                    {mostrarMenu()}
-                }
-        else if (categoria===3){
-                opcion = mostrarJeans()
-                if (opcion != 5){
-                    if (opcion === 1)
-                          seguirComprando= comprarPrenda("Jean Rojo",4000)
-                    else if (opcion === 2)
-                         seguirComprando=  comprarPrenda("Jean Verde",3000)
-                    else if (opcion === 3)
-                          seguirComprando=  comprarPrenda("Jean Azul",2000)
-                    else if (opcion === 4)
-                         seguirComprando= comprarPrenda("Jean Amarillo",4000)
-                }
-                else 
-                    {mostrarMenu()}
-                }
-        else if (categoria===4){ 
-                opcion = mostrarSweaters()
-                if (opcion != 5){
-                    if (opcion === 1)
-                         seguirComprando=comprarPrenda("Sweater Rojo",1000)
-                    else if (opcion === 2)
-                         seguirComprando= comprarPrenda("Sweater Verde",2000)
-                    else if (opcion === 3)
-                         seguirComprando= comprarPrenda("Sweater Azul",3000)
-                    else if (opcion === 4)
-                         seguirComprando= comprarPrenda("Sweater Amarillo",1000)
-                }
-                else 
-                    {mostrarMenu()}
-                }
-                
-        else if (categoria===5){ 
-                    seguirComprando=false
-                }
-        else {
-                alert(`Opción incorrecta. Vuelva a seleccionar la opción`)
-                categoria= mostrarMenu()
-            }
-        
+        else if (respuesta === "no" || respuesta === "No" || respuesta === "NO")
+       {
+            codigo_producto =5
+       }
+       
     }
+    total_compra = calcularTotal(productos)
+    lista = listarCompra(productos)
+    alert(`Usted compró:\n ${lista}`)
+    alert(`El total de la compra es: $${total_compra}`)
     salir()
     
 }
