@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+.encabezado {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+}
+.menu{
+    background-color: rgb(172, 162, 162);
+}
+.titulo{
+    margin-left:200px;
+}
+.carrito_notificacion{
+    margin-right: 10px;
+}
+span{
+    font-family: "Poppins", sans-serif;
+}
+.container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .container_galeria img {
+    width: 100%;
+  }
+  .container_galeria:hover img {
+    transform: scale(1.3);
+    transition: transform 2s;
+  }
+  .container_galerias {
+    overflow: hidden;
+  }
+  .index_menu:hover {
+    transform: scale(1.1);
+    transition: transform 1s;
+  }
+  
+  .index_menu {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: 50px;
+  }

@@ -43,29 +43,32 @@ let categoria=0
 let seguirComprando=true
 if (contraseña === "123"){
     saludar(nombre)
+    categoria =mostrarMenu()
     while(seguirComprando){
-        categoria =mostrarMenu()
+        
         console.log(`${categoria}`)
-        switch(categoria){
-            case 1: 
-                opcion = Number(mostrarVestidos())
+        if (categoria ===1){
+            opcion = Number(mostrarVestidos())
+            if (opcion != 5){
+                if (opcion === 1)
+                    seguirComprando= comprarPrenda("Vestido Rojo",1000)
+                else if (opcion === 2)
+                    seguirComprando=comprarPrenda("Vestido Verde",5000)
+                else if (opcion === 3)
+                    seguirComprando=  comprarPrenda("Vestido Azul",4000)
+                else if (opcion === 4)
+                    seguirComprando=comprarPrenda("Vestido Amarillo",1000)
+                }
+            else 
+                {   console.log("entre")
+                    mostrarMenu()
+                }
+                    
             
-                if (opcion != 5)
-                    if (opcion === 1)
-                        seguirComprando= comprarPrenda("Vestido Rojo",1000)
-                    else if (opcion === 2)
-                        seguirComprando=comprarPrenda("Vestido Verde",5000)
-                    else if (opcion === 3)
-                        seguirComprando=  comprarPrenda("Vestido Azul",4000)
-                    else if (opcion === 4)
-                        seguirComprando=comprarPrenda("Vestido Amarillo",1000)
-                else 
-                    {   console.log("entre")
-                        mostrarMenu()}
-                break
-            case 2: 
+        }
+        else if(categoria===2){
                 opcion = mostrarRemeras()
-                if (opcion != 5)
+                if (opcion != 5){
                     if (opcion === 1)
                           seguirComprando=comprarPrenda("Remera Roja",1000)
                     else if (opcion === 2)
@@ -74,12 +77,13 @@ if (contraseña === "123"){
                          seguirComprando=comprarPrenda("Remera Azul",4000)
                     else if (opcion === 4)
                          seguirComprando=comprarPrenda("Remera Amarilla",5000)
+                }
                 else 
                     {mostrarMenu()}
-                break
-            case 3:
+                }
+        else if (categoria===3){
                 opcion = mostrarJeans()
-                if (opcion != 5)
+                if (opcion != 5){
                     if (opcion === 1)
                           seguirComprando= comprarPrenda("Jean Rojo",4000)
                     else if (opcion === 2)
@@ -88,12 +92,13 @@ if (contraseña === "123"){
                           seguirComprando=  comprarPrenda("Jean Azul",2000)
                     else if (opcion === 4)
                          seguirComprando= comprarPrenda("Jean Amarillo",4000)
+                }
                 else 
                     {mostrarMenu()}
-                break
-            case 4: 
+                }
+        else if (categoria===4){ 
                 opcion = mostrarSweaters()
-                if (opcion != 5)
+                if (opcion != 5){
                     if (opcion === 1)
                          seguirComprando=comprarPrenda("Sweater Rojo",1000)
                     else if (opcion === 2)
@@ -102,18 +107,21 @@ if (contraseña === "123"){
                          seguirComprando= comprarPrenda("Sweater Azul",3000)
                     else if (opcion === 4)
                          seguirComprando= comprarPrenda("Sweater Amarillo",1000)
+                }
                 else 
                     {mostrarMenu()}
+                }
                 
-                break
-            case 5: 
-                seguirComprando =false
-                break
-            default: 
+        else if (categoria===5){ 
+                    seguirComprando=false
+                }
+        else {
                 alert(`Opción incorrecta. Vuelva a seleccionar la opción`)
                 categoria= mostrarMenu()
-        }
+            }
+        
     }
     salir()
+    
 }
 
