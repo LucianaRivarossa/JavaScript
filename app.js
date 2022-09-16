@@ -1,4 +1,4 @@
-function iniciar(){
+/*function iniciar(){
     alert(`Tienda de ropa`)
 }
 function saludar(nombre){
@@ -59,7 +59,7 @@ function salir(){
     alert(`Gracias por su visita`)
 }
 
-iniciar()
+iniciar()*/
 let encabezado = document.getElementById("encabezado");
 let nav= document.createElement("nav");
 nav.classList.add("navbar","navbar-expand-lg","bg-light")
@@ -98,114 +98,79 @@ nav.innerHTML = `<div class="container-fluid ">
 encabezado.appendChild(nav)
 let main = document.getElementById("main_carrosuel");
 
-let galeria= document.createElement("div");
-console.log(galeria)
-galeria.innerHTML = `
-
+let carrousel= document.createElement("div");
+console.log(carrousel)
+carrousel.innerHTML = `<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
 <div class="carousel-indicators">
-<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
 </div>
 <div class="carousel-inner">
-<div class="carousel-item active">
-  <img src="imagenes/banner_1.png" class="d-block w-100" alt="...">
-</div>
-<div class="carousel-item">
-  <img src="imagenes/banner_2.png" class="d-block w-100" alt="...">
-</div>
+  <div class="carousel-item active">
+    <img src="imagenes/banner_1.png" class="d-block w-100" alt="...">
+  </div>
+  <div class="carousel-item">
+    <img src="imagenes/banner_2.png" class="d-block w-100" alt="...">
+  </div>
 </div>
 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-<span class="visually-hidden">Previous</span>
+  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <span class="visually-hidden">Previous</span>
 </button>
 <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-<span class="carousel-control-next-icon" aria-hidden="true"></span>
-<span class="visually-hidden">Next</span>
+  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <span class="visually-hidden">Next</span>
 </button>
-</div>
-<div class="container">
-<div class="row justify-content-center">
-<div class="col-lg-4 col-md-12 col-sm-12">
-  <div class="card border-dark text-center index_menu" style="width: 20rem;">
-      <img src="./imagenes/remera_1.png" class="d-block w-100" alt="imagen ropa">
-      <div class="card-body">
-        <h5 class="card-title">Remera Lisette </h5>
-        <p>$1.500</p>
-        <a href="./paginas/productos.html" class="btn btn-secondary">Agregar al carrito</a>
-      </div>
-  </div>
-</div>
-<div class="col-lg-4 col-md-12 col-sm-12">
-  <div class="card border-dark text-center index_menu" style="width: 20rem;">
-      <img src="./imagenes/vestido_1.png" class="d-block w-100" alt="imagen ropa">
-      <div class="card-body">
-        <h5 class="card-title">Vetido Fiorella</h5>
-        <p>$2.500</p>
-        <a href="./paginas/productos.html" class="btn btn-secondary">Agregar al carrito</a>
-      </div>
-  </div>
-</div>
-<div class="col-lg-4 col-md-12 col-sm-12">
-  <div class="card border-dark text-center index_menu" style="width: 20rem;">
-      <img src="./imagenes/jean_1.png" class="d-block w-100" alt="imagen ropa">
-      <div class="card-body">
-        <h5 class="card-title"> Jean Holanda</h5>
-        <p>$5.500</p>
-        <a href="./paginas/productos.html" class="btn btn-secondary">Agregar al carrito</a>
-      </div>
-  </div>
-</div>
-<div class="col-lg-4 col-md-12 col-sm-12">
-  <div class="card border-dark text-center index_menu" style="width: 20rem;">
-      <img src="./imagenes/camisa_1.png" class="d-block w-100" alt="imagen ropa">
-      <div class="card-body">
-        <h5 class="card-title">Camisa Azul</h5>
-        <p>$1.800</p>
-        <a href="./paginas/productos.html" class="btn btn-secondary">Agregar al carrito</a>
-      </div>
-  </div>
-</div>
-<div class="col-lg-4 col-md-12 col-sm-12">
-  <div class="card border-dark text-center index_menu" style="width: 20rem;">
-      <img src="./imagenes/sweater_1.png" class="d-block w-100" alt="imagen ropa">
-      <div class="card-body">
-        <h5 class="card-title">Sweater Isa</h5>
-        <p>$2.500</p>
-        <a href="./paginas/productos.html" class="btn btn-secondary">Agregar al carrito</a>
-      </div>
-  </div>
-</div>
-<div class="col-lg-4 col-md-12 col-sm-12">
-  <div class="card border-dark text-center index_menu" style="width: 20rem;">
-      <img src="./imagenes/remera_2.png" class="d-block w-100" alt="imagen ropa">
-      <div class="card-body">
-        <h5 class="card-title"> Remera Paris </h5>
-        <p>$800</p>
-        <a href="./paginas/productos.html" class="btn btn-secondary">Agregar al carrito</a>
-      </div>
-  </div>
-</div>
-`
-main.appendChild(galeria)
-nombre= prompt(`Ingrese nombre de usuario`)
+</div>`
+main.appendChild(carrousel)
+/*nombre= prompt(`Ingrese nombre de usuario`)
 contraseña= prompt(`Ingrese contraseña`)
-let opcion = 0
-const productos = [];
+let opcion = 0*/
+
 class Producto {
-    constructor(nombre, precio, cantidad) {
+    constructor(nombre,precio,stock,imagen) {
       this.nombre = nombre;
       this.precio = precio;
-      this.cantidad = cantidad;
+      this.stock = stock;
+      this.imagen = imagen;
+
     }
   }
-const productosExclusivos =[
-    {nombre:"Vestido Exclusivo", precio: 15000 , cantidad: 1000},
-    {nombre:"Remera Exclusivo", precio: 12000 , cantidad: 1000},
-    {nombre:"Jean Exclusivo", precio: 16000 , cantidad: 1000},
-    {nombre:"Sweater Exclusivo", precio: 11000 , cantidad: 1000},
+
+const productos =[
+    {nombre:"Remera", precio: 15000 , stock: 1000,imagen:"./imagenes/remera_1.png"},
+    {nombre:"Vestido", precio: 12000 , stock: 1000,imagen:"./imagenes/vestido_1.png" },
+    {nombre:"Jean", precio: 16000 , stock: 1000,imagen:"./imagenes/Jean_1.png" },
+    {nombre:"Camisa", precio: 11000 , stock: 1000,imagen:"./imagenes/camisa_1.png" },
+    {nombre:"Sweater", precio: 11000 , stock: 1000,imagen:"./imagenes/sweater_1.png" },
+    {nombre:"Remera Paris", precio: 11000 , stock: 1000,imagen:"./imagenes/remera_2.png" },
   ];
-if (contraseña === "123"){
+
+  const mostrarProductos = () =>{
+    const galeria = document.getElementById("galeria")
+    console.log(galeria)
+    productos.forEach((producto,i) =>{
+      const card = document.createElement("div")
+      card.classList.add("card","col-lg-4","col-md-12","col-sm-12")
+      console.log(card)
+      card.innerHTML =
+      `<div class="card border-dark text-center index_menu" style="width: 20rem;">
+      <img src="${producto.imagen}" class="d-block w-100" alt="imagen ropa">
+      <div class="card-body">
+        <h5 class="card-title">${producto.nombre}</h5>
+        <p>$1.500</p>
+        <a href="" onclick="agregarCarrito()" class="btn btn-secondary">Agregar al carrito</a>
+      </div>
+  </div>`
+    galeria.appendChild(card)
+    })
+  }
+  const agregarCarrito = () =>{
+     alert(`Producto agregado `);
+  }
+  mostrarProductos()
+/*if (contraseña === "123"){
     saludar(nombre)
     mostrarMenu()
     while(opcion != 6){
@@ -227,5 +192,5 @@ if (contraseña === "123"){
         alert(`El total de la compra es: $${total_compra}`)
     }
     salir()
-}
+}*/
 
