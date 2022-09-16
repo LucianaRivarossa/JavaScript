@@ -141,7 +141,7 @@ class Producto {
 const productos =[
     {nombre:"Remera", precio: 15000 , stock: 1000,imagen:"./imagenes/remera_1.png"},
     {nombre:"Vestido", precio: 12000 , stock: 1000,imagen:"./imagenes/vestido_1.png" },
-    {nombre:"Jean", precio: 16000 , stock: 1000,imagen:"./imagenes/Jean_1.png" },
+    {nombre:"Jean", precio: 16000 , stock: 1000,imagen:"./imagenes/jean_1.png" },
     {nombre:"Camisa", precio: 11000 , stock: 1000,imagen:"./imagenes/camisa_1.png" },
     {nombre:"Sweater", precio: 11000 , stock: 1000,imagen:"./imagenes/sweater_1.png" },
     {nombre:"Remera Paris", precio: 11000 , stock: 1000,imagen:"./imagenes/remera_2.png" },
