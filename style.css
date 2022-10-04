@@ -2,7 +2,27 @@
     margin: 0;
     padding: 0;
   }
-  
+.cart{
+  width: 24% ;
+  margin: auto;
+  padding: 20px;
+  background-color: rgb(178, 204, 228);
+}
+.carrito {
+  color: #03adad;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: solid 2px
+
+}
+.titulo{
+  margin:10px;
+ font-size: 20px;
+}
+.carrito img{
+  width: 50px;
+}
 .encabezado {
     position: -webkit-sticky;
     position: sticky;

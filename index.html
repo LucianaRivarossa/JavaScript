@@ -14,20 +14,60 @@
 </head>
 <body>
     <header class="encabezado" id="encabezado">
-        
+        <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid ">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarText">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Winter Sale</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">New Collection</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">All Shop</a>
+                </li>
+                <a class="navbar-brand titulo "><span><strong>Mora Indumentaria</strong></span> </a>
+              </ul>
+              <button type="button" class="btn btn-secondary carrito_notificacion" >
+                  <i class="fa-solid fa-cart-shopping"></i>
+                  <span id="carrito_cantidad" class="badge text-bg-secondary">0</span>
+              </button>
+              <span class="navbar-text">
+                  <form class="d-flex" role="search">
+                      <input class="form-control me-2" type="search" placeholder="Buscar.." aria-label="Search">
+                      <button class="btn btn-outline-secondary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+              </span>
+            </div>
+        </div>
+        </nav>
     </header>
     <main>
-      <div id="main_carrosuel">
-
-      </div>
+    
         <div class="container">
             <div id="galeria" class="row justify-content-center">
            
-             
             </div>
+            <p class="titulo"><strong>CARRITO DE COMPRAS</strong></p>
+            <div id="cart" style="color: blue">
+              
+            </div>
+            <div class="container">
+            <div>
+
         </div>
+        
+        
         
     </main>
     <script src="./app.js"></script>
 </body>
+
 </html>
