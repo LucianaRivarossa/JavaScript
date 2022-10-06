@@ -1,12 +1,10 @@
 
-
 class Producto {
     constructor(nombre,precio,stock,imagen) {
       this.nombre = nombre;
       this.precio = precio;
       this.stock = stock;
       this.imagen = imagen;
-
     }
   }
 const productos =[
@@ -17,17 +15,13 @@ const productos =[
     {id:4,nombre:"Sweater", precio: 11000 , stock: 2,imagen:"./imagenes/sweater_1.png" },
     {id:5,nombre:"Remera Paris", precio: 11000 , stock: 1,imagen:"./imagenes/remera_2.png" },
   ];
-
-
-
   let limpiar = 0
   const galeria = document.getElementById("galeria")
   const mostrarProductos = () =>{
     if (limpiar === 1)
-     {  galeria.innerHTML =""
-      
-    }
-     
+    {  
+      galeria.innerHTML =""
+    }     
      productos.forEach((producto,i) =>{
      const card = document.createElement("div")
      card.classList.add("card","col-lg-4","col-md-12","col-sm-12")
@@ -43,17 +37,13 @@ const productos =[
       </div>`
       galeria.appendChild(card)
       })
-    
   }
   mostrarProductos()
   let carrito=[]
- 
   let modalcarrito = document.getElementById("cart") 
-  
   const agregarCarrito = (i) =>{
-   
     const indiceEncontrado = carrito.findIndex((elemento)=>{
-      return elemento.id === productos[i].id
+    return elemento.id === productos[i].id
     })
     limpiar =1
     if (indiceEncontrado === -1){
@@ -62,29 +52,27 @@ const productos =[
       nuevoProducto.stock -= 1
       if (nuevoProducto.stock < 0)
       {
-            
-            alert(`no hay stock de ${nuevoProducto.nombre}`)
+        swal(`No hay stock ${nuevoProducto.nombre} `,"", "error");
       }
       else{
         carrito.push(nuevoProducto)
         dibujarcarrito()
         mostrarProductos()
-      }
-     
-      
+      }          
     }
     else {
       carrito[indiceEncontrado].cantidad += 1
       carrito[indiceEncontrado].stock -= 1
-      if (carrito[indiceEncontrado].stock < 0){
-        alert(`no hay stock de ${carrito[indiceEncontrado].nombre}`)
+      if (carrito[indiceEncontrado].stock < 0)
+      {
+        
+        swal(`No hay stock ${carrito[indiceEncontrado].nombre} `,"", "error");
       }
-      else{
+      else
+      {
         dibujarcarrito()
         mostrarProductos()
-      }
-      
-      
+      }        
     }
   }
   let total = 0
@@ -109,10 +97,7 @@ const productos =[
             <div>
               Subtotal: $${producto.precio * producto.cantidad}
             </div>
-            <a onclick="eliminarDeCarrito(${i})" class="btn btn-secondary">Eliminar</a>
-            <
-            
-            `
+            <a onclick="eliminarDeCarrito(${i})" class="btn btn-secondary">Eliminar</a>`
             modalcarrito.appendChild(carritoContainer)
         })
         const totalizador = document.createElement("div");
@@ -123,9 +108,9 @@ const productos =[
   }
   const eliminarDeCarrito = (i) =>{
    carrito.splice(i,1)
+   swal("Producto eliminado","", "success");
    dibujarcarrito()
   }
-
   class datosCompra{
     constructor(nombre,email,direccion){
      this.nombre=nombre
@@ -136,9 +121,8 @@ const productos =[
   function mostrarMensaje(){
     const datos = localStorage.getItem("datosCompra") 
     const obj = JSON.parse(datos)
-    alert(`Gracias ${obj.nombre} Los datos de la compra se enviarán a tu correo ${obj.email}`)
-    
-
+    swal("Compra realizada!", `Gracias ${obj.nombre} Los datos de la compra se enviarán a tu correo ${obj.email}`, "success");
+      
   }
   
   function cargarDatosCliente(){
@@ -149,13 +133,12 @@ const productos =[
     const aJson= JSON.stringify(datos)
     localStorage.setItem("datosCompra",aJson)
     mostrarMensaje()
+    pagar.innerHTML = ""
   }
-
+  const pagar = document.createElement("div");
   const finalizar = (i) =>{
-    const pagar = document.createElement("div");
     pagar.innerHTML = `<div class= "row"> 
     <div class="col-lg-6 col-md-12 col-sm-12">
-    
     <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Nombre completo</label>
     <input type="" class="form-control" id="Nombre" aria-describedby="emailHelp">
@@ -176,6 +159,4 @@ const productos =[
     </div>
     </div>`
     modalcarrito.appendChild(pagar);
-    
-    
   }
