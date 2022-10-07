@@ -1,4 +1,3 @@
-
 class Producto {
     constructor(nombre,precio,stock,imagen) {
       this.nombre = nombre;
@@ -17,12 +16,18 @@ const productos =[
   ];
   let limpiar = 0
   const galeria = document.getElementById("galeria")
+
+
+
   const mostrarProductos = () =>{
     if (limpiar === 1)
     {  
       galeria.innerHTML =""
     }     
-     productos.forEach((producto,i) =>{
+     fetch("./datos.json")
+    .then(resp => resp.json())
+    .then(date=> 
+     date.forEach((producto,i) =>{
      const card = document.createElement("div")
      card.classList.add("card","col-lg-4","col-md-12","col-sm-12")
      card.innerHTML =
@@ -37,6 +42,7 @@ const productos =[
       </div>`
       galeria.appendChild(card)
       })
+      )
   }
   mostrarProductos()
   let carrito=[]
