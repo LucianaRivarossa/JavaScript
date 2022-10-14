@@ -6,28 +6,24 @@ class Producto {
       this.imagen = imagen;
     }
   }
-const productos =[
-    {id:0,nombre:"Remera", precio: 15000 , stock: 10,imagen:"./imagenes/remera_1.png"},
-    {id:1,nombre:"Vestido", precio: 12000 , stock: 5,imagen:"./imagenes/vestido_1.png" },
-    {id:2,nombre:"Jean", precio: 16000 , stock: 3,imagen:"./imagenes/jean_1.png" },
-    {id:3,nombre:"Camisa", precio: 11000 , stock: 11,imagen:"./imagenes/camisa_1.png" },
-    {id:4,nombre:"Sweater", precio: 11000 , stock: 2,imagen:"./imagenes/sweater_1.png" },
-    {id:5,nombre:"Remera Paris", precio: 11000 , stock: 1,imagen:"./imagenes/remera_2.png" },
-  ];
-  let limpiar = 0
-  const galeria = document.getElementById("galeria")
+let productos =[];
+fetch("./datos.json")
+.then(resp => resp.json())
+.then((date) => {
+    mostrarProductos(date)
+    console.log(date)
+    }) 
 
+let limpiar = 0
+const galeria = document.getElementById("galeria")
 
-
-  const mostrarProductos = () =>{
+const mostrarProductos = (a) =>{
     if (limpiar === 1)
     {  
       galeria.innerHTML =""
     }     
-     fetch("./datos.json")
-    .then(resp => resp.json())
-    .then(date=> 
-     date.forEach((producto,i) =>{
+     productos = a
+     productos.forEach((producto,i) =>{
      const card = document.createElement("div")
      card.classList.add("card","col-lg-4","col-md-12","col-sm-12")
      card.innerHTML =
@@ -42,9 +38,9 @@ const productos =[
       </div>`
       galeria.appendChild(card)
       })
-      )
+      
   }
-  mostrarProductos()
+  
   let carrito=[]
   let modalcarrito = document.getElementById("cart") 
   const agregarCarrito = (i) =>{
@@ -63,7 +59,7 @@ const productos =[
       else{
         carrito.push(nuevoProducto)
         dibujarcarrito()
-        mostrarProductos()
+        mostrarProductos(productos)
       }          
     }
     else {
@@ -77,7 +73,7 @@ const productos =[
       else
       {
         dibujarcarrito()
-        mostrarProductos()
+        mostrarProductos(productos)
       }        
     }
   }
