@@ -6,15 +6,35 @@
   width: 24% ;
   margin: auto;
   padding: 20px;
-  background-color: rgb(178, 204, 228);
+
+  
 }
 .carrito {
-  color: #03adad;
+  color: rgb(219, 213, 213);
+  background-color: white;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border: solid 2px
+  border: solid 2px;
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
 
+}
+
+.carrito div{
+  color:black;
+}
+
+.tituloCarrito{
+  font-weight: bold;
+  width: 120px;
+}
+.Total{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  
+  
 }
 .titulo{
   margin:10px;
@@ -23,6 +43,10 @@
 .carrito img{
   width: 50px;
 }
+.botonComprar{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 .encabezado {
     position: -webkit-sticky;
     position: sticky;
@@ -30,11 +54,31 @@
     z-index: 999;
     width: 100%;
 }
+.linea {
+  border-top: 1px solid black;
+  height: 2px;
+  max-width: 1000px;
+  padding: 20px;
+  margin: 20px auto 0 auto;
+}
 .menu{
-    background-color: rgb(172, 162, 162);
+    background-color: rgba(219, 42, 42, 0.795);
 }
 .titulo{
     margin-left:200px;
+}
+.container .titulo{
+  margin-left: 37%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  font-size: 25px;
+
+}
+
+.container{
+  background-color: rgba(206, 199, 191, 0.534);
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
 }
 .carrito_notificacion{
     margin-right: 10px;
@@ -46,6 +90,8 @@ span{
     margin-top: 50px;
     margin-bottom: 50px;
   }
+
+
   .container_galeria img {
     width: 100%;
   }
@@ -57,11 +103,11 @@ span{
     overflow: hidden;
   }
   .index_menu:hover {
-    transform: scale(1.1);
+    transform: scale(1.06);
     transition: transform 1s;
   }
   
   .index_menu {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    margin: 50px;
+    margin: 15px;
   }
